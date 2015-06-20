@@ -10,7 +10,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by Trevor on 6/19/2015.
+ * Dagger 2 starter module. Will most likely expand to a multi-module architecture later in development.
  */
 @Module
 public class NHModule {
@@ -18,7 +18,7 @@ public class NHModule {
     private Context context;
 
     public NHModule (NHApplication application) {
-        this.context = context;
+        this.context = application;
     }
 
     @Provides

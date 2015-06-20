@@ -7,7 +7,7 @@ import com.tsums.newshacker.dependencies.NHComponent;
 import com.tsums.newshacker.dependencies.NHModule;
 
 /**
- * Created by Trevor on 6/19/2015.
+ * Application class where we can instantiate runtime needs like Dagger injection.
  */
 public class NHApplication extends Application {
 

@@ -7,7 +7,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
- * Dagger 2 whole-app dependency module. Will probably move to a multi-module architecture at a later date.
+ * Dagger 2 whole-app dependency component.
  */
 @Component (modules = NHModule.class)
 @Singleton
