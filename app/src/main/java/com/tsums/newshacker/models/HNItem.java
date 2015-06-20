@@ -1,7 +1,8 @@
 package com.tsums.newshacker.models;
 
-import java.util.Date;
+import org.parceler.Parcel;
 
+@Parcel
 public class HNItem {
 
     public static final String TYPE_STORY   = "story";
@@ -15,9 +16,13 @@ public class HNItem {
     public int    id;
     public int[]  kids;
     public int    score;
-    public Date   time;
+    public int    time;
     public String title;
     public String type;
-    public String URL;
+    public String url;
+
+    public String getPoints () {
+        return Integer.toString(score) + " points";
+    }
 
 }

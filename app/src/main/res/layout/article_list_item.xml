@@ -10,17 +10,39 @@
             type="com.tsums.newshacker.models.HNItem"/>
     </data>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/article_list_item_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="4dp">
 
         <TextView
+            android:id="@+id/article_list_item_title"
+            style="@style/article_list_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{item.title}"
             tools:text="Article Title"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/article_list_item_author"
+            style="@style/article_list_item_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/article_list_item_title"
+            android:text="@{item.by}"
+            tools:text="by dhoustoun"/>
+
+        <TextView
+            android:id="@+id/article_list_item_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/article_list_item_title"
+            android:text="@{item.getPoints()}"
+            tools:text="400 points"/>
+
+    </RelativeLayout>
 
 </layout>

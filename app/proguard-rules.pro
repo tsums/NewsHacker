@@ -25,3 +25,14 @@
 -dontwarn okio.**
 -dontwarn com.squareup.okhttp.**
 
+# Parcel library
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keep class org.parceler.Parceler$$Parcels
+
+# Dart
+-dontwarn com.f2prateek.dart.internal.**
+-keep class **$$ExtraInjector { *; }
+-keepnames class * { @com.f2prateek.dart.InjectExtra *;}

@@ -18,19 +18,19 @@ public interface HNConnector {
     void getItem (@Path ("id") int item, Callback<HNItem> itemCallback);
 
     @GET ("/topstories.json")
-    void getTopStories (Callback<List<HNItem>> callback);
+    void getTopStories (Callback<List<Integer>> callback);
 
     @GET ("/newstories.json")
-    void getNewStories (Callback<List<HNItem>> callback);
+    void getNewStories (Callback<Integer[]> callback);
 
     @GET ("/showstories.json")
-    void getShowStories (Callback<List<HNItem>> callback);
+    void getShowStories (Callback<Integer[]> callback);
 
     @GET ("/askstories.json")
-    void getAskStories (Callback<List<HNItem>> callback);
+    void getAskStories (Callback<Integer[]> callback);
 
     @GET ("/jobstories.json")
-    void getJobStories (Callback<List<HNItem>> callback);
+    void getJobStories (Callback<Integer[]> callback);
 
     @GET ("/maxitem.json")
     void getMaxItem (Callback<Integer> callback);

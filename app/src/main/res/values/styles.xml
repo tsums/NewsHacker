@@ -16,4 +16,13 @@
         <item name="color">@android:color/white</item>
     </style>
 
+    <style name="article_list_item_title">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="article_list_item_author">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
 </resources>

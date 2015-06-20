@@ -9,18 +9,12 @@ import android.support.v7.widget.Toolbar;
 
 import com.tsums.newshacker.NHApplication;
 import com.tsums.newshacker.R;
-import com.tsums.newshacker.models.HNItem;
 import com.tsums.newshacker.network.HNConnector;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 /**
  * Main Activity for the application which will hose the app drawer and the majority of the functionality.
@@ -64,16 +58,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart () {
         super.onStart();
-        mConnector.getNewStories(new Callback<List<HNItem>>() {
-            @Override
-            public void success (List<HNItem> hnItems, Response response) {
-
-            }
-
-            @Override
-            public void failure (RetrofitError error) {
-
-            }
-        });
     }
 }
