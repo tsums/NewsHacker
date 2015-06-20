@@ -2,9 +2,6 @@ package com.tsums.newshacker.models;
 
 import java.util.Date;
 
-/**
- *
- */
 public class HNItem {
 
     public static final String TYPE_STORY   = "story";

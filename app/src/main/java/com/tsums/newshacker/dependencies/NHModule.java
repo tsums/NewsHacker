@@ -22,6 +22,11 @@ public class NHModule {
 
     private Context context;
 
+    /**
+     * Strictly enforce that only the NHApplication should be the source of context for this module.
+     *
+     * @param application to provide context
+     */
     public NHModule (NHApplication application) {
         this.context = application;
     }
