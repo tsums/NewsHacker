@@ -21,8 +21,4 @@ public class HNItem {
     public String type;
     public String url;
 
-    public String getPoints () {
-        return Integer.toString(score) + " points";
-    }
-
 }

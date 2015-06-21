@@ -18,6 +18,7 @@ import com.tsums.newshacker.adapters.ArticleListAdapter;
 import com.tsums.newshacker.models.HNItem;
 import com.tsums.newshacker.models.HNItemScoreComparator;
 import com.tsums.newshacker.network.HNConnector;
+import com.tsums.newshacker.ui.DividerItemDecoration;
 
 import org.parceler.Parcels;
 
@@ -37,7 +38,7 @@ public class ItemListFragment extends Fragment implements ArticleListAdapter.Art
 
     private static final String TAG = ItemListFragment.class.getSimpleName();
 
-    @InjectView (R.id.fragment_item_list_recycler_view) RecyclerView mRecylerView;
+    @InjectView (R.id.fragment_item_list_recycler_view) RecyclerView mRecyclerView;
 
     @Inject HNConnector mConnector;
 
@@ -56,10 +57,11 @@ public class ItemListFragment extends Fragment implements ArticleListAdapter.Art
         View parentView = inflater.inflate(R.layout.fragment_item_list, container);
         ButterKnife.inject(this, parentView);
 
-        mRecylerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
 
         mAdapter = new ArticleListAdapter(this, articles);
-        mRecylerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
 
         return parentView;
     }

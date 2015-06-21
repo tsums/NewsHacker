@@ -8,6 +8,8 @@
         <variable
             name="item"
             type="com.tsums.newshacker.models.HNItem"/>
+
+        <import type="com.tsums.newshacker.util.TimeUtil"/>
     </data>
 
     <RelativeLayout
@@ -31,8 +33,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/article_list_item_title"
-            android:text="@{item.by}"
+            android:text='@{"submitted by " + item.by}'
             tools:text="by dhoustoun"/>
+
+        <TextView
+            android:id="@+id/article_list_item_time"
+            style="@style/article_list_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/article_list_item_title"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/article_list_item_author"
+            android:text="@{TimeUtil.format(item.time)}"
+            tools:text="8 hours ago"/>
 
         <TextView
             android:id="@+id/article_list_item_score"
@@ -40,8 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_below="@id/article_list_item_title"
-            android:text="@{item.getPoints()}"
-            tools:text="400 points"/>
+            android:text='@{String.valueOf(item.score) + " points"}'
+            tools:text="42 points"/>
 
     </RelativeLayout>
 

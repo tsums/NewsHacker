@@ -36,3 +36,7 @@
 -dontwarn com.f2prateek.dart.internal.**
 -keep class **$$ExtraInjector { *; }
 -keepnames class * { @com.f2prateek.dart.InjectExtra *;}
+
+# PrettyTime
+-keep public class com.ocpsoft.pretty.time.**
+-dontwarn com.ocpsoft.pretty.time.**
