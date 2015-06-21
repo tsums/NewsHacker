@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_new_stories:
             case R.id.nav_show_stories:
             case R.id.nav_ask_stories:
+            case R.id.nav_job_stories:
                 menuItem.setChecked(true);
                 mDrawerLayout.closeDrawers();
                 return true;
