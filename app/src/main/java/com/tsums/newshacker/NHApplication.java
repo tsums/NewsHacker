@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.tsums.newshacker.dependencies.DaggerNHComponent;
 import com.tsums.newshacker.dependencies.NHComponent;
+import com.tsums.newshacker.dependencies.NHDebugModule;
 import com.tsums.newshacker.dependencies.NHModule;
 
 /**
@@ -22,7 +23,12 @@ public class NHApplication extends Application {
 
         super.onCreate();
 
-        mComponent = DaggerNHComponent.builder().nHModule(new NHModule(this)).build();
+        if (BuildConfig.DEBUG) {
+            mComponent = DaggerNHComponent.builder().nHModule(new NHDebugModule(this)).build();
+        } else {
+            mComponent = DaggerNHComponent.builder().nHModule(new NHModule(this)).build();
+        }
+
 
     }
 }

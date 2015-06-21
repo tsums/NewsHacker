@@ -42,7 +42,6 @@ public class NHModule {
     HNConnector provideHNConnector (Context context, OkHttpClient okHttpClient) {
         RestAdapter.Builder mBuilder = new RestAdapter.Builder();
         mBuilder.setEndpoint(context.getString(R.string.hn_api_backend_path));
-        mBuilder.setLogLevel(RestAdapter.LogLevel.FULL); //TODO disable this in a release build
         mBuilder.setClient(new OkClient(okHttpClient));
         return mBuilder.build().create(HNConnector.class);
     }
