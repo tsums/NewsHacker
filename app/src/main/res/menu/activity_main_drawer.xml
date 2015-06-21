@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_top_stories"
+            android:checked="true"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/main_drawer_top_stories"/>
+        <item
+            android:id="@+id/nav_new_stories"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/main_drawer_new_stories"/>
+        <item
+            android:id="@+id/nav_show_stories"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/main_drawer_show_stories"/>
+        <item
+            android:id="@+id/nav_ask_stories"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/main_drawer_ask_stories"/>
+    </group>
+</menu>
