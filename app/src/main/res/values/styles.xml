@@ -26,7 +26,7 @@
     </style>
 
     <style name="article_list_item_title">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:singleLine">true</item>
     </style>
 

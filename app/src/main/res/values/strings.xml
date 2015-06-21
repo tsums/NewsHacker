@@ -7,4 +7,5 @@
     <string name="main_drawer_new_stories">New Stories</string>
     <string name="main_drawer_show_stories">Show Stories</string>
     <string name="main_drawer_ask_stories">Ask Stories</string>
+    <string name="main_drawer_job_stories">Job Stories</string>
 </resources>

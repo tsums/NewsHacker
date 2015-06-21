@@ -8,7 +8,7 @@
             android:title="@string/main_drawer_top_stories"/>
         <item
             android:id="@+id/nav_new_stories"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/ic_new_releases_white_24dp"
             android:title="@string/main_drawer_new_stories"/>
         <item
             android:id="@+id/nav_show_stories"
@@ -16,7 +16,11 @@
             android:title="@string/main_drawer_show_stories"/>
         <item
             android:id="@+id/nav_ask_stories"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/ic_help_white_24dp"
             android:title="@string/main_drawer_ask_stories"/>
+        <item
+            android:id="@+id/nav_job_stories"
+            android:icon="@drawable/ic_work_white_24dp"
+            android:title="@string/main_drawer_job_stories"/>
     </group>
 </menu>
