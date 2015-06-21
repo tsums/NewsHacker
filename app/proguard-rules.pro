@@ -1,6 +1,5 @@
--forceprocessing
 -dontskipnonpubliclibraryclasses
--dontobfuscate
+-forceprocessing
 
 # ButterKnife
 -keep class butterknife.** { *; }
@@ -40,3 +39,7 @@
 # PrettyTime
 -keep public class com.ocpsoft.pretty.time.**
 -dontwarn com.ocpsoft.pretty.time.**
+
+# Models for data binding
+-keepnames class com.tsums.newshacker.models.** { *;}
+-keepclassmembernames class com.tsums.newshacker.models.** { *;}

@@ -12,7 +12,7 @@ public class HNItem {
     public static final String TYPE_POLLOPT = "pollopt";
 
     public String by;
-    public int    descendents;
+    public int descendants;
     public int    id;
     public int[]  kids;
     public int    score;

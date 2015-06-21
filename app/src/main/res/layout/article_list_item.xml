@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="4dp">
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/article_list_item_title"
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/article_list_item_title"
-            android:text='@{"submitted by " + item.by}'
+            android:text='@{"by " + item.by}'
             tools:text="by dhoustoun"/>
 
         <TextView
@@ -53,8 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_below="@id/article_list_item_title"
-            android:text='@{String.valueOf(item.score) + " points"}'
-            tools:text="42 points"/>
+            android:text='@{String.valueOf(item.score) + " points | " + String.valueOf(item.descendants) + " comments"}'
+            tools:text="42 points | 7 comments"/>
 
     </RelativeLayout>
 

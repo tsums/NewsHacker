@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -38,7 +39,8 @@ public class ItemListFragment extends Fragment implements ArticleListAdapter.Art
 
     private static final String TAG = ItemListFragment.class.getSimpleName();
 
-    @InjectView (R.id.fragment_item_list_recycler_view) RecyclerView mRecyclerView;
+    @InjectView (R.id.fragment_item_list_recycler_view) RecyclerView       mRecyclerView;
+    @InjectView (R.id.fragment_item_list_swipe_refresh) SwipeRefreshLayout mSwipeRefresh;
 
     @Inject HNConnector mConnector;
 
@@ -63,13 +65,39 @@ public class ItemListFragment extends Fragment implements ArticleListAdapter.Art
         mAdapter = new ArticleListAdapter(this, articles);
         mRecyclerView.setAdapter(mAdapter);
 
+        mSwipeRefresh.setColorSchemeResources(R.color.primary, R.color.primary_dark);
+        mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh () {
+                updateArticles();
+                mSwipeRefresh.setRefreshing(false); //TODO better way of determining when data load is done.
+            }
+        });
+
         return parentView;
     }
 
     @Override
     public void onStart () {
         super.onStart();
+        updateArticles();
+    }
 
+    @Override
+    public void onDestroyView () {
+        super.onDestroyView();
+        ButterKnife.reset(this);
+    }
+
+    @Override
+    public void onClick (int position) {
+
+        Intent i = new Intent(getActivity(), ArticleDetailActivity.class);
+        i.putExtra(ArticleDetailActivity.EXTRA_ARTICLE, Parcels.wrap(articles.get(position)));
+        startActivity(i);
+    }
+
+    private void updateArticles () {
         articles.clear();
         mAdapter.notifyDataSetChanged();
         mConnector.getTopStories(new Callback<List<Integer>>() {
@@ -99,30 +127,5 @@ public class ItemListFragment extends Fragment implements ArticleListAdapter.Art
                 Log.e(TAG, "erorr getting top articles", error);
             }
         });
-
-    }
-
-    @Override
-    public void onDestroyView () {
-        super.onDestroyView();
-        ButterKnife.reset(this);
-    }
-
-    @Override
-    public void onClick (int position) {
-
-//        String url = articles.get(position).url;
-//
-//        if (url != null && !url.isEmpty()) {
-//            Intent i = new Intent(Intent.ACTION_VIEW);
-//            i.setData(Uri.parse(url));
-//            if (!getActivity().getPackageManager().queryIntentActivities(i, 0).isEmpty()) {
-//                getActivity().startActivity(i);
-//            }
-//        }
-
-        Intent i = new Intent(getActivity(), ArticleDetailActivity.class);
-        i.putExtra(ArticleDetailActivity.EXTRA_ARTICLE, Parcels.wrap(articles.get(position)));
-        startActivity(i);
     }
 }
