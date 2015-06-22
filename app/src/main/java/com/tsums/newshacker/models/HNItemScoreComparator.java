@@ -3,7 +3,7 @@ package com.tsums.newshacker.models;
 import java.util.Comparator;
 
 /**
- * Created by Trevor on 6/20/2015.
+ * Sort HNItems in descending order by score.
  */
 public class HNItemScoreComparator implements Comparator<HNItem> {
 

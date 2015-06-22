@@ -5,22 +5,27 @@
             android:id="@+id/nav_top_stories"
             android:checked="true"
             android:icon="@mipmap/ic_launcher"
-            android:title="@string/main_drawer_top_stories"/>
+            android:title="@string/main_drawer_top_stories"
+            android:titleCondensed="@string/main_drawer_top_stories_condensed"/>
         <item
             android:id="@+id/nav_new_stories"
             android:icon="@drawable/ic_new_releases_white_24dp"
-            android:title="@string/main_drawer_new_stories"/>
+            android:title="@string/main_drawer_new_stories"
+            android:titleCondensed="@string/main_drawer_new_stories_condensed"/>
         <item
             android:id="@+id/nav_show_stories"
             android:icon="@mipmap/ic_launcher"
-            android:title="@string/main_drawer_show_stories"/>
+            android:title="@string/main_drawer_show_stories"
+            android:titleCondensed="@string/main_drawer_show_stories_condensed"/>
         <item
             android:id="@+id/nav_ask_stories"
             android:icon="@drawable/ic_help_white_24dp"
-            android:title="@string/main_drawer_ask_stories"/>
+            android:title="@string/main_drawer_ask_stories"
+            android:titleCondensed="@string/main_drawer_ask_stories_condensed"/>
         <item
             android:id="@+id/nav_job_stories"
             android:icon="@drawable/ic_work_white_24dp"
-            android:title="@string/main_drawer_job_stories"/>
+            android:title="@string/main_drawer_job_stories"
+            android:titleCondensed="@string/main_drawer_job_stories_condensed"/>
     </group>
 </menu>

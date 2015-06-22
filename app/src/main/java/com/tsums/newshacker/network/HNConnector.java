@@ -21,16 +21,16 @@ public interface HNConnector {
     void getTopStories (Callback<List<Integer>> callback);
 
     @GET ("/newstories.json")
-    void getNewStories (Callback<Integer[]> callback);
+    void getNewStories (Callback<List<Integer>> callback);
 
     @GET ("/showstories.json")
-    void getShowStories (Callback<Integer[]> callback);
+    void getShowStories (Callback<List<Integer>> callback);
 
     @GET ("/askstories.json")
-    void getAskStories (Callback<Integer[]> callback);
+    void getAskStories (Callback<List<Integer>> callback);
 
     @GET ("/jobstories.json")
-    void getJobStories (Callback<Integer[]> callback);
+    void getJobStories (Callback<List<Integer>> callback);
 
     @GET ("/maxitem.json")
     void getMaxItem (Callback<Integer> callback);

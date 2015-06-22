@@ -2,7 +2,6 @@ package com.tsums.newshacker.adapters;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -67,10 +66,8 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
             this.binding = binding;
         }
 
-
         @OnClick (R.id.article_list_item_container)
         void onClickItem () {
-            Log.d("foo", "I got clicked!: " + getAdapterPosition());
             listener.onClick(getAdapterPosition());
         }
 
