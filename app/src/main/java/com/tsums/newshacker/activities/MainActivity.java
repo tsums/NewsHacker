@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mConnector.getTopStories(new Callback<List<Integer>>() {
                     @Override
                     public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
+                        integers = integers.subList(0, (integers.size()<15) ? integers.size() : 15);
                         fetchArticles(integers, SORTING_STRATEGY.SORT_SCORE);
                     }
 
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mConnector.getNewStories(new Callback<List<Integer>>() {
                     @Override
                     public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
+                        integers = integers.subList(0, (integers.size()<15) ? integers.size() : 15);
                         fetchArticles(integers, SORTING_STRATEGY.SORT_DATE);
                     }
 
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mConnector.getAskStories(new Callback<List<Integer>>() {
                     @Override
                     public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
+                        integers = integers.subList(0, (integers.size()<15) ? integers.size() : 15);
                         fetchArticles(integers, SORTING_STRATEGY.SORT_SCORE);
                     }
 
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mConnector.getShowStories(new Callback<List<Integer>>() {
                     @Override
                     public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
+                        integers = integers.subList(0, (integers.size()<15) ? integers.size() : 15);
                         fetchArticles(integers, SORTING_STRATEGY.SORT_SCORE);
                     }
 
@@ -211,7 +211,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mConnector.getJobStories(new Callback<List<Integer>>() {
                     @Override
                     public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
+
+                        integers = integers.subList(0, (integers.size()<15) ? integers.size() : 15);
                         fetchArticles(integers, SORTING_STRATEGY.SORT_SCORE);
                     }
 
