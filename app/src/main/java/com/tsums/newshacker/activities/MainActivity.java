@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Inject HNConnector mConnector;
 
     private List<HNItem> articles = new ArrayList<>();
-    private ArticleListAdapter mAdapter;
+    private ArticleListAdapter    mAdapter;
     private ActionBarDrawerToggle mToggle;
 
     private int currentMenuItem;
@@ -121,17 +121,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         updateArticleIds();
         getSupportActionBar().setTitle(getString(R.string.app_name) + " - " + menuItem.getTitleCondensed());
 
-//        switch (menuItem.getItemId()) {
-//            // TODO implement switching of feed in fragment.
-//            case R.id.nav_top_stories:
-//            case R.id.nav_new_stories:
-//            case R.id.nav_show_stories:
-//            case R.id.nav_ask_stories:
-//            case R.id.nav_job_stories:
-//
-//                return true;
-//        }
-
         return true;
     }
 
@@ -152,74 +141,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (currentMenuItem) {
             case R.id.nav_top_stories:
-                mConnector.getTopStories(new Callback<List<Integer>>() {
-                    @Override
-                    public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
-                        fetchArticles(integers, SORTING_STRATEGY.SORT_SCORE);
-                    }
-
-                    @Override
-                    public void failure (RetrofitError error) {
-                        Log.e(TAG, "error getting top articles", error);
-                    }
-                });
+                mConnector.getTopStories(new ArticleIDListCallback(SORTING_STRATEGY.SORT_SCORE));
                 break;
             case R.id.nav_new_stories:
-                mConnector.getNewStories(new Callback<List<Integer>>() {
-                    @Override
-                    public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
-                        fetchArticles(integers, SORTING_STRATEGY.SORT_DATE);
-                    }
-
-                    @Override
-                    public void failure (RetrofitError error) {
-                        Log.e(TAG, "error getting new articles", error);
-                    }
-                });
+                mConnector.getNewStories(new ArticleIDListCallback(SORTING_STRATEGY.SORT_SCORE));
                 break;
             case R.id.nav_ask_stories:
-                mConnector.getAskStories(new Callback<List<Integer>>() {
-                    @Override
-                    public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
-                        fetchArticles(integers, SORTING_STRATEGY.SORT_SCORE);
-                    }
-
-                    @Override
-                    public void failure (RetrofitError error) {
-                        Log.e(TAG, "error getting ask articles", error);
-                    }
-                });
+                mConnector.getAskStories(new ArticleIDListCallback(SORTING_STRATEGY.SORT_SCORE));
                 break;
             case R.id.nav_show_stories:
-                mConnector.getShowStories(new Callback<List<Integer>>() {
-                    @Override
-                    public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
-                        fetchArticles(integers, SORTING_STRATEGY.SORT_SCORE);
-                    }
-
-                    @Override
-                    public void failure (RetrofitError error) {
-                        Log.e(TAG, "error getting show articles", error);
-                    }
-                });
+                mConnector.getShowStories(new ArticleIDListCallback(SORTING_STRATEGY.SORT_SCORE));
                 break;
             case R.id.nav_job_stories:
-                mConnector.getJobStories(new Callback<List<Integer>>() {
-                    @Override
-                    public void success (List<Integer> integers, Response response) {
-                        integers = integers.subList(0, 15);
-                        fetchArticles(integers, SORTING_STRATEGY.SORT_SCORE);
-                    }
-
-                    @Override
-                    public void failure (RetrofitError error) {
-                        Log.e(TAG, "error getting job articles", error);
-                    }
-                });
+                mConnector.getJobStories(new ArticleIDListCallback(SORTING_STRATEGY.SORT_SCORE));
                 break;
         }
     }
@@ -253,6 +187,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Log.e(TAG, "error getting article: " + id, error);
                 }
             });
+        }
+    }
+
+    private class ArticleIDListCallback implements Callback<List<Integer>> {
+
+        private SORTING_STRATEGY strategy;
+
+        public ArticleIDListCallback(SORTING_STRATEGY strategy) {
+            this.strategy = strategy;
+        }
+
+        @Override
+        public void success (List<Integer> integers, Response response) {
+            integers = integers.subList(0, 15);
+            fetchArticles(integers, strategy);
+        }
+
+        @Override
+        public void failure (RetrofitError error) {
+            Log.e(TAG, "failed to get article ids: " + error.getUrl(), error);
         }
     }
 
