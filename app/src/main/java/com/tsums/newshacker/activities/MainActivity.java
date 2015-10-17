@@ -200,7 +200,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         public void success (List<Integer> integers, Response response) {
-            integers = integers.subList(0, 15);
+            if(integers.size()>=15){
+                integers = integers.subList(0, 15);
+            }
             fetchArticles(integers, strategy);
         }
 
