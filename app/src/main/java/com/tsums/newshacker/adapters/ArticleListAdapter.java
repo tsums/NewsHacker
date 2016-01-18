@@ -62,7 +62,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
 
         public ArticleViewHolder (ArticleListItemBinding binding) {
             super(binding.getRoot());
-            ButterKnife.inject(this, binding.getRoot());
+            ButterKnife.bind(this, binding.getRoot());
             this.binding = binding;
         }
 

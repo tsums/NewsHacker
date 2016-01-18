@@ -11,15 +11,15 @@ import com.f2prateek.dart.InjectExtra;
 import com.tsums.newshacker.R;
 import com.tsums.newshacker.models.HNItem;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class ArticleDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_ARTICLE = "extra_article";
 
-    @InjectView (R.id.activity_article_detail_toolbar) Toolbar toolbar;
-    @InjectView (R.id.activity_article_detail_webview) WebView webview;
+    @Bind(R.id.activity_article_detail_toolbar) Toolbar toolbar;
+    @Bind (R.id.activity_article_detail_webview) WebView webview;
 
     @InjectExtra (EXTRA_ARTICLE) HNItem article;
 
@@ -28,7 +28,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_article_detail);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         Dart.inject(this);
 
         setSupportActionBar(toolbar);

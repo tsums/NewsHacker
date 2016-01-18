@@ -33,7 +33,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    @InjectView (R.id.activity_main_toolbar)       Toolbar            mToolbar;
-    @InjectView (R.id.activity_main_drawer_layout) DrawerLayout       mDrawerLayout;
-    @InjectView (R.id.activity_main_nav_view)      NavigationView     mNavigationView;
-    @InjectView (R.id.activity_main_recycler_view) RecyclerView       mRecyclerView;
-    @InjectView (R.id.activity_main_swipe_refresh) SwipeRefreshLayout mSwipeRefresh;
+    @Bind (R.id.activity_main_toolbar)       Toolbar            mToolbar;
+    @Bind (R.id.activity_main_drawer_layout) DrawerLayout       mDrawerLayout;
+    @Bind (R.id.activity_main_nav_view)      NavigationView     mNavigationView;
+    @Bind (R.id.activity_main_recycler_view) RecyclerView       mRecyclerView;
+    @Bind (R.id.activity_main_swipe_refresh) SwipeRefreshLayout mSwipeRefresh;
 
     @Inject HNConnector mConnector;
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ((NHApplication) getApplication()).getmComponent().inject(this);
 
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
 
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer, R.string.close_drawer);
