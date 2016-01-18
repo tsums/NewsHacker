@@ -7,9 +7,7 @@
 
         <variable
             name="item"
-            type="com.tsums.newshacker.models.HNItem"/>
-
-        <import type="com.tsums.newshacker.util.TimeUtil"/>
+            type="com.tsums.newshacker.models.CheeaunHNItem"/>
     </data>
 
     <RelativeLayout
@@ -25,15 +23,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{item.title}"
-            tools:text="Article Title"/>
+            tools:text="My YC app: Dropbox - Throw away your USB drive"/>
+
+        <TextView
+            android:id="@+id/article_list_item_domain"
+            style="@style/article_list_item_domain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/article_list_item_title"
+            android:text="@{item.domain}"
+            tools:text="getdropbox.com"
+            />
 
         <TextView
             android:id="@+id/article_list_item_author"
             style="@style/article_list_item_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/article_list_item_title"
-            android:text='@{"by " + item.by}'
+            android:layout_below="@id/article_list_item_domain"
+            android:text='@{item.user}'
             tools:text="by dhoustoun"/>
 
         <TextView
@@ -41,11 +49,11 @@
             style="@style/article_list_item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/article_list_item_title"
+            android:layout_below="@id/article_list_item_domain"
             android:layout_marginStart="5dp"
             android:layout_toEndOf="@id/article_list_item_author"
-            android:text="@{TimeUtil.format(item.time)}"
-            tools:text="8 hours ago"/>
+            android:text="@{item.time_ago}"
+            tools:text="8 years ago"/>
 
         <TextView
             android:id="@+id/article_list_item_score"
@@ -53,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_below="@id/article_list_item_title"
-            android:text='@{String.valueOf(item.score) + " points | " + String.valueOf(item.descendants) + " comments"}'
-            tools:text="42 points | 7 comments"/>
+            android:text='@{String.valueOf(item.points) + " points | " + String.valueOf(item.comments_count) + " comments"}'
+            tools:text="111 points | 71 comments"/>
 
     </RelativeLayout>
 

@@ -1,4 +1,4 @@
-package com.tsums.newshacker.dependencies;
+package com.tsums.newshacker.core;
 
 import android.content.Context;
 

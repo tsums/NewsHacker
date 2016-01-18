@@ -1,5 +1,6 @@
-package com.tsums.newshacker.dependencies;
+package com.tsums.newshacker.core;
 
+import com.tsums.newshacker.activities.ArticleDetailActivity;
 import com.tsums.newshacker.activities.MainActivity;
 
 import javax.inject.Singleton;
@@ -14,6 +15,6 @@ import dagger.Component;
 public interface NHComponent {
 
     void inject (MainActivity activity);
-
+    void inject (ArticleDetailActivity activity);
 
 }

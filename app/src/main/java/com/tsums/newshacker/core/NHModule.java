@@ -1,10 +1,11 @@
-package com.tsums.newshacker.dependencies;
+package com.tsums.newshacker.core;
 
 import android.content.Context;
 
 import com.squareup.okhttp.OkHttpClient;
 import com.tsums.newshacker.NHApplication;
 import com.tsums.newshacker.R;
+import com.tsums.newshacker.network.CheeaunAPIConnector;
 import com.tsums.newshacker.network.HNConnector;
 
 import javax.inject.Singleton;
@@ -44,6 +45,15 @@ public class NHModule {
         mBuilder.setEndpoint(context.getString(R.string.hn_api_backend_path));
         mBuilder.setClient(new OkClient(okHttpClient));
         return mBuilder.build().create(HNConnector.class);
+    }
+
+    @Provides
+    @Singleton
+    CheeaunAPIConnector provideCheeaunConnector(Context context, OkHttpClient okHttpClient) {
+        RestAdapter.Builder mBuilder = new RestAdapter.Builder();
+        mBuilder.setEndpoint(context.getString(R.string.cheeaun_api_backend_path));
+        mBuilder.setClient(new OkClient(okHttpClient));
+        return mBuilder.build().create(CheeaunAPIConnector.class);
     }
 
     @Provides

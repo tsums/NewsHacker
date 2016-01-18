@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hn_api_backend_path">https://hacker-news.firebaseio.com/v0</string>
+    <string name="cheeaun_api_backend_path">https://node-hnapi.herokuapp.com</string>
 </resources>

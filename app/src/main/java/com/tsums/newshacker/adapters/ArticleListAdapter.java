@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.tsums.newshacker.R;
 import com.tsums.newshacker.databinding.ArticleListItemBinding;
-import com.tsums.newshacker.models.HNItem;
+import com.tsums.newshacker.models.CheeaunHNItem;
 
 import java.util.List;
 
@@ -18,9 +18,9 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
 
     private LayoutInflater       inflater;
     private ArticleClickListener listener;
-    private List<HNItem>         articles;
+    private List<CheeaunHNItem>  articles;
 
-    public ArticleListAdapter (ArticleClickListener listener, List<HNItem> articles) {
+    public ArticleListAdapter (ArticleClickListener listener, List<CheeaunHNItem> articles) {
         this.articles = articles;
         this.listener = listener;
     }
