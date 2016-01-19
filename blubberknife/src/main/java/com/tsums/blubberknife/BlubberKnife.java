@@ -1,6 +1,6 @@
 /*
  * NewsHacker - BlubberKnife.java
- * Last Modified: 1/19/16 12:56 PM
+ * Last Modified: 1/19/16 1:06 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -28,6 +28,7 @@ package com.tsums.blubberknife;
 import android.app.Activity;
 
 import com.tsums.blubberknife.annotation.ContentView;
+import com.tsums.blubberknife.exception.MissingContentViewException;
 
 /**
  * BlubberKnife cuts through the fat in Android development.

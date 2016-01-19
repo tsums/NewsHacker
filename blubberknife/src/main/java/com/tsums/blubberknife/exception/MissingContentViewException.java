@@ -1,6 +1,6 @@
 /*
  * NewsHacker - MissingContentViewException.java
- * Last Modified: 1/19/16 12:54 PM
+ * Last Modified: 1/19/16 1:06 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.tsums.blubberknife;
+package com.tsums.blubberknife.exception;
 
 import android.app.Activity;
 
