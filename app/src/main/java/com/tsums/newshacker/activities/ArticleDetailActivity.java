@@ -47,6 +47,9 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import timber.log.Timber;
 
+/**
+ * Detail page showing WebView of link contents.
+ */
 public class ArticleDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_ARTICLE = "extra_article";

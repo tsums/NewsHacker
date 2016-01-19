@@ -1,6 +1,6 @@
 /*
- * NewsHacker - NHComponent.java
- * Last Modified: 1/18/16 4:56 PM
+ * NewsHacker - NHBaseActivity.java
+ * Last Modified: 1/18/16 8:08 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -23,25 +23,40 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.tsums.newshacker.core;
+package com.tsums.newshacker.activities;
 
-import com.tsums.newshacker.activities.ArticleDetailActivity;
-import com.tsums.newshacker.activities.MainActivity;
-import com.tsums.newshacker.activities.NHBaseActivity;
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.v7.app.AppCompatActivity;
 
-import javax.inject.Singleton;
+import com.f2prateek.dart.Dart;
+import com.tsums.newshacker.NHApplication;
 
-import dagger.Component;
+import java.lang.reflect.Field;
+
+import butterknife.ButterKnife;
 
 /**
- * Dagger 2 whole-app dependency component.
+ * Base Activity class which provides boilerplate code.
  */
-@Component (modules = NHModule.class)
-@Singleton
-public interface NHComponent {
+public abstract class NHBaseActivity extends AppCompatActivity {
 
-    void inject (NHBaseActivity activity);
-    void inject (MainActivity activity);
-    void inject (ArticleDetailActivity activity);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((NHApplication) getApplication()).getmComponent().inject(this);
+        Dart.inject(this);
+        ButterKnife.bind(this);
+    }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
+
+    private void getContentViewID() {
+        for (Field f: getClass().getFields()) {
+            //TODO find the int from the annotation.
+        }
+    }
 }
