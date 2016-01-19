@@ -1,6 +1,6 @@
 /*
- * NewsHacker - BlubberKnife.java
- * Last Modified: 1/19/16 12:56 PM
+ * NewsHacker - MissingContentViewException.java
+ * Last Modified: 1/19/16 12:54 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -27,19 +27,22 @@ package com.tsums.blubberknife;
 
 import android.app.Activity;
 
-import com.tsums.blubberknife.annotation.ContentView;
-
 /**
- * BlubberKnife cuts through the fat in Android development.
+ * Exception thrown when we attempt to set content view on an unannotated activity.
  */
-public class BlubberKnife {
+public class MissingContentViewException extends RuntimeException {
+    private String message;
 
-    public static void setContentView(Activity activity) {
-        ContentView contentView = activity.getClass().getAnnotation(ContentView.class);
-        if (contentView != null) {
-            activity.setContentView(contentView.value());
-        } else {
-            throw new MissingContentViewException(activity);
+    public MissingContentViewException(Activity activity) {
+        super();
+        message = "Activity " + activity.getClass().getSimpleName() + " missing @ContentView() annotation.";
+    }
+
+    @Override
+    public String getMessage() {
+        if (message != null && !message.isEmpty()) {
+            return message;
         }
+        return super.getMessage();
     }
 }
