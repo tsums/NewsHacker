@@ -1,6 +1,6 @@
 /*
- * NewsHacker - NHBaseActivity.java
- * Last Modified: 1/18/16 8:08 PM
+ * NewsHacker - ContentView.java
+ * Last Modified: 1/18/16 10:06 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -23,37 +23,15 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.tsums.newshacker.activities;
+package com.tsums.newshacker.annotation;
 
-import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
-
-import com.f2prateek.dart.Dart;
-import com.tsums.newshacker.BlubberKnife;
-import com.tsums.newshacker.NHApplication;
-import com.tsums.newshacker.R;
-import com.tsums.newshacker.annotation.ContentView;
-
-import java.lang.reflect.Field;
-
-import butterknife.ButterKnife;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 /**
- * Base Activity class which provides boilerplate code.
+ * Created by trevor on 1/18/16.
  */
-public abstract class NHBaseActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Dart.inject(this);
-        BlubberKnife.setContentView(this);
-        ButterKnife.bind(this);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-    }
+@Retention(RetentionPolicy.RUNTIME)
+public @interface ContentView {
+    int value(); // id of the layout to be used
 }

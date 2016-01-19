@@ -41,6 +41,7 @@ import android.view.MenuItem;
 import com.tsums.newshacker.NHApplication;
 import com.tsums.newshacker.R;
 import com.tsums.newshacker.adapters.ArticleListAdapter;
+import com.tsums.newshacker.annotation.ContentView;
 import com.tsums.newshacker.models.CheeaunHNItem;
 import com.tsums.newshacker.network.CheeaunAPIConnector;
 import com.tsums.newshacker.network.HNConnector;
@@ -63,7 +64,8 @@ import timber.log.Timber;
 /**
  * Main Activity for the application which will hose the app drawer and the majority of the functionality.
  */
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ArticleListAdapter.ArticleClickListener {
+@ContentView(R.layout.activity_main)
+public class MainActivity extends NHBaseActivity implements NavigationView.OnNavigationItemSelectedListener, ArticleListAdapter.ArticleClickListener {
 
     @Bind (R.id.activity_main_toolbar)       Toolbar            mToolbar;
     @Bind (R.id.activity_main_drawer_layout) DrawerLayout       mDrawerLayout;
@@ -83,11 +85,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         ((NHApplication) getApplication()).getmComponent().inject(this);
 
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
 
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer, R.string.close_drawer);

@@ -1,6 +1,6 @@
 /*
- * NewsHacker - NHBaseActivity.java
- * Last Modified: 1/18/16 8:08 PM
+ * NewsHacker - BlubberKnife.java
+ * Last Modified: 1/18/16 10:12 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -23,37 +23,26 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.tsums.newshacker.activities;
+package com.tsums.newshacker;
 
-import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 
-import com.f2prateek.dart.Dart;
-import com.tsums.newshacker.BlubberKnife;
-import com.tsums.newshacker.NHApplication;
-import com.tsums.newshacker.R;
 import com.tsums.newshacker.annotation.ContentView;
 
 import java.lang.reflect.Field;
 
-import butterknife.ButterKnife;
+import timber.log.Timber;
 
 /**
- * Base Activity class which provides boilerplate code.
+ * Created by trevor on 1/18/16.
  */
-public abstract class NHBaseActivity extends AppCompatActivity {
+public class BlubberKnife {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Dart.inject(this);
-        BlubberKnife.setContentView(this);
-        ButterKnife.bind(this);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
+    public static void setContentView(Activity activity) {
+        ContentView contentView = activity.getClass().getAnnotation(ContentView.class);
+        if (contentView != null) {
+            activity.setContentView(contentView.value());
+            Timber.d("Setting content view to: %d", contentView.value());
+        }
     }
 }
