@@ -1,6 +1,6 @@
 /*
  * NewsHacker - BlubberKnife.java
- * Last Modified: 1/18/16 10:12 PM
+ * Last Modified: 1/19/16 12:43 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -23,15 +23,11 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.tsums.newshacker;
+package com.tsums.blubberknife;
 
 import android.app.Activity;
 
-import com.tsums.newshacker.annotation.ContentView;
-
-import java.lang.reflect.Field;
-
-import timber.log.Timber;
+import com.tsums.blubberknife.annotation.ContentView;
 
 /**
  * Created by trevor on 1/18/16.
@@ -42,7 +38,6 @@ public class BlubberKnife {
         ContentView contentView = activity.getClass().getAnnotation(ContentView.class);
         if (contentView != null) {
             activity.setContentView(contentView.value());
-            Timber.d("Setting content view to: %d", contentView.value());
         }
     }
 }

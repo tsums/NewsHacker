@@ -1,6 +1,6 @@
 /*
  * NewsHacker - NHBaseActivity.java
- * Last Modified: 1/18/16 8:08 PM
+ * Last Modified: 1/19/16 12:43 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -30,12 +30,7 @@ import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.f2prateek.dart.Dart;
-import com.tsums.newshacker.BlubberKnife;
-import com.tsums.newshacker.NHApplication;
-import com.tsums.newshacker.R;
-import com.tsums.newshacker.annotation.ContentView;
-
-import java.lang.reflect.Field;
+import com.tsums.blubberknife.BlubberKnife;
 
 import butterknife.ButterKnife;
 

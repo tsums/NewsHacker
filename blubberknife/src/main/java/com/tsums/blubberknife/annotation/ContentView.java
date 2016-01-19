@@ -1,6 +1,6 @@
 /*
- * NewsHacker - settings.gradle
- * Last Modified: 1/19/16 12:35 PM
+ * NewsHacker - ContentView.java
+ * Last Modified: 1/19/16 12:43 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -23,4 +23,15 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-include ':app', ':blubberknife'
+package com.tsums.blubberknife.annotation;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+/**
+ * Created by trevor on 1/18/16.
+ */
+@Retention(RetentionPolicy.RUNTIME)
+public @interface ContentView {
+    int value(); // id of the layout to be used
+}

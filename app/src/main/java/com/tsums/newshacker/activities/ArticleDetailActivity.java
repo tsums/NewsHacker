@@ -1,6 +1,6 @@
 /*
  * NewsHacker - ArticleDetailActivity.java
- * Last Modified: 1/18/16 4:56 PM
+ * Last Modified: 1/18/16 7:43 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *

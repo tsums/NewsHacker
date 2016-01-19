@@ -1,6 +1,6 @@
 /*
  * NewsHacker - build.gradle
- * Last Modified: 1/18/16 4:55 PM
+ * Last Modified: 1/19/16 12:39 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -67,6 +67,8 @@ android {
 }
 
 dependencies {
+    compile project(":blubberknife")
+
     // Main source set dependencies
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.1.1'

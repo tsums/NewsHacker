@@ -1,6 +1,6 @@
 /*
- * NewsHacker - ContentView.java
- * Last Modified: 1/18/16 10:06 PM
+ * NewsHacker - ApplicationTest.java
+ * Last Modified: 1/19/16 12:35 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -23,15 +23,16 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.tsums.newshacker.annotation;
+package com.tsums.blubberknife;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import android.app.Application;
+import android.test.ApplicationTestCase;
 
 /**
- * Created by trevor on 1/18/16.
+ * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
-@Retention(RetentionPolicy.RUNTIME)
-public @interface ContentView {
-    int value(); // id of the layout to be used
+public class ApplicationTest extends ApplicationTestCase<Application> {
+    public ApplicationTest() {
+        super(Application.class);
+    }
 }

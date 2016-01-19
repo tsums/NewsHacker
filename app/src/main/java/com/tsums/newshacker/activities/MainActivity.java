@@ -1,6 +1,6 @@
 /*
  * NewsHacker - MainActivity.java
- * Last Modified: 1/18/16 4:56 PM
+ * Last Modified: 1/19/16 12:45 PM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -32,16 +32,15 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.tsums.blubberknife.annotation.ContentView;
 import com.tsums.newshacker.NHApplication;
 import com.tsums.newshacker.R;
 import com.tsums.newshacker.adapters.ArticleListAdapter;
-import com.tsums.newshacker.annotation.ContentView;
 import com.tsums.newshacker.models.CheeaunHNItem;
 import com.tsums.newshacker.network.CheeaunAPIConnector;
 import com.tsums.newshacker.network.HNConnector;
@@ -54,7 +53,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.ButterKnife;
 import butterknife.Bind;
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -107,7 +105,7 @@ public class MainActivity extends NHBaseActivity implements NavigationView.OnNav
         mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh () {
-                updateArticleIds();
+                fetchArticles();
                 mSwipeRefresh.setRefreshing(false); //TODO better way of determining when data load is done.
             }
         });
@@ -131,7 +129,7 @@ public class MainActivity extends NHBaseActivity implements NavigationView.OnNav
     @Override
     public void onStart () {
         super.onStart();
-        updateArticleIds();
+        fetchArticles();
     }
 
     @Override
@@ -140,7 +138,7 @@ public class MainActivity extends NHBaseActivity implements NavigationView.OnNav
         currentMenuItem = menuItem.getItemId();
         menuItem.setChecked(true);
         mDrawerLayout.closeDrawers();
-        updateArticleIds();
+        fetchArticles();
         getSupportActionBar().setTitle(getString(R.string.app_name) + " - " + menuItem.getTitleCondensed());
         return true;
     }
@@ -155,7 +153,7 @@ public class MainActivity extends NHBaseActivity implements NavigationView.OnNav
         }
     }
 
-    private void updateArticleIds () {
+    private void fetchArticles() {
 
         articles.clear();
         mAdapter.notifyDataSetChanged();

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ NewsHacker - activity_main_drawer_header.xml
-  ~ Last Modified: 1/18/16 4:59 PM
+  ~ NewsHacker - strings.xml
+  ~ Last Modified: 1/19/16 12:35 PM
   ~
   ~ Copyright (c) 2016 Trevor Summerfield
   ~
@@ -24,21 +23,6 @@
   ~ OTHER DEALINGS IN THE SOFTWARE.
   -->
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="175dp"
-    android:background="?attr/colorPrimaryDark"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:padding="4dp"
-        android:text="@string/app_name"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"/>
-
-</RelativeLayout>
+<resources>
+    <string name="app_name">BlubberKnife</string>
+</resources>
