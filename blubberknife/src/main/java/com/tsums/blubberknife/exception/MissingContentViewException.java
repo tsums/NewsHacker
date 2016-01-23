@@ -1,6 +1,6 @@
 /*
  * NewsHacker - MissingContentViewException.java
- * Last Modified: 1/19/16 1:06 PM
+ * Last Modified: 1/23/16 9:29 AM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -25,17 +25,15 @@
 
 package com.tsums.blubberknife.exception;
 
-import android.app.Activity;
-
 /**
  * Exception thrown when we attempt to set content view on an unannotated activity.
  */
 public class MissingContentViewException extends RuntimeException {
     private String message;
 
-    public MissingContentViewException(Activity activity) {
+    public MissingContentViewException(Object object) {
         super();
-        message = "Activity " + activity.getClass().getSimpleName() + " missing @ContentView() annotation.";
+        message = "Activity " + object.getClass().getSimpleName() + " missing @ContentView() annotation.";
     }
 
     @Override

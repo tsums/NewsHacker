@@ -1,6 +1,6 @@
 /*
  * NewsHacker - ArticleDetailActivity.java
- * Last Modified: 1/18/16 7:43 PM
+ * Last Modified: 1/23/16 10:02 AM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -28,11 +28,13 @@ package com.tsums.newshacker.activities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.webkit.WebView;
 
 import com.f2prateek.dart.Dart;
 import com.f2prateek.dart.InjectExtra;
+import com.tsums.blubberknife.annotation.OptionsMenu;
 import com.tsums.newshacker.NHApplication;
 import com.tsums.newshacker.R;
 import com.tsums.newshacker.models.CheeaunHNItem;
@@ -50,12 +52,13 @@ import timber.log.Timber;
 /**
  * Detail page showing WebView of link contents.
  */
+@OptionsMenu(R.menu.activity_detail_toolbar)
 public class ArticleDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_ARTICLE = "extra_article";
 
     @Bind (R.id.activity_article_detail_toolbar) Toolbar toolbar;
-    @Bind (R.id.activity_article_detail_webview) WebView webview;
+//    @Bind (R.id.activity_article_detail_webview) WebView webview;
 
     @InjectExtra (EXTRA_ARTICLE) CheeaunHNItem article;
 
@@ -77,9 +80,16 @@ public class ArticleDetailActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle(article.title);
 
-        webview.loadUrl(article.url);
+//        webview.loadUrl(article.url);
 
         getComments();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_detail_toolbar, menu);
+        return true;
     }
 
     @Override

@@ -1,6 +1,6 @@
 /*
  * NewsHacker - BlubberKnife.java
- * Last Modified: 1/19/16 1:06 PM
+ * Last Modified: 1/23/16 10:08 AM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -42,5 +42,9 @@ public class BlubberKnife {
         } else {
             throw new MissingContentViewException(activity);
         }
+    }
+
+    public static void blubber(Activity activity) {
+
     }
 }

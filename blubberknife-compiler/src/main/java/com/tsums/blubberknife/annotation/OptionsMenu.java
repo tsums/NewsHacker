@@ -1,6 +1,6 @@
 /*
- * NewsHacker - ContentView.java
- * Last Modified: 1/19/16 12:43 PM
+ * NewsHacker - OptionsMenu.java
+ * Last Modified: 1/23/16 10:03 AM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -29,9 +29,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Created by trevor on 1/18/16.
+ * Annotation which allows easily setting the Options Menu resource to be inflated into an activity.
  */
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ContentView {
-    int value(); // id of the layout to be used
+public @interface OptionsMenu {
+    int value();
 }

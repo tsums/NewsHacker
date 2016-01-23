@@ -1,6 +1,6 @@
 /*
  * NewsHacker - build.gradle
- * Last Modified: 1/19/16 12:39 PM
+ * Last Modified: 1/23/16 9:37 AM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -90,4 +90,6 @@ dependencies {
     // APT Compile Dependencies
     apt 'com.google.dagger:dagger-compiler:2.0.2'
     apt "org.parceler:parceler:1.0.4"
+
+    apt project(":blubberknife-compiler")
 }

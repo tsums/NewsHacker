@@ -1,5 +1,5 @@
-<!--
-  ~ NewsHacker - strings.xml
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ NewsHacker - activity_detail_toolbar.xml
   ~ Last Modified: 1/23/16 9:04 AM
   ~
   ~ Copyright (c) 2016 Trevor Summerfield
@@ -23,22 +23,12 @@
   ~ OTHER DEALINGS IN THE SOFTWARE.
   -->
 
-<resources>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <string name="app_name">NewsHacker</string>
-    <string name="open_drawer">Open Drawer</string>
-    <string name="close_drawer">Close Drawer</string>
-
-    <string name="main_drawer_top_stories">Top Stories</string>
-    <string name="main_drawer_top_stories_condensed">Top</string>
-    <string name="main_drawer_new_stories">New Stories</string>
-    <string name="main_drawer_new_stories_condensed">New</string>
-    <string name="main_drawer_show_stories">Show Stories</string>
-    <string name="main_drawer_show_stories_condensed">Show</string>
-    <string name="main_drawer_ask_stories">Ask Stories</string>
-    <string name="main_drawer_ask_stories_condensed">Ask</string>
-    <string name="main_drawer_job_stories">Job Stories</string>
-    <string name="main_drawer_job_stories_condensed">Job</string>
-    <string name="action_browser">Open Browser</string>
-
-</resources>
+    <item
+        android:id="@+id/action_open_browser"
+        android:icon="@drawable/ic_globe"
+        android:title="@string/action_browser"
+        app:showAsAction="always" />
+</menu>

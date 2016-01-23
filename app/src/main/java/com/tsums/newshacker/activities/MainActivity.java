@@ -1,6 +1,6 @@
 /*
  * NewsHacker - MainActivity.java
- * Last Modified: 1/19/16 12:45 PM
+ * Last Modified: 1/23/16 9:28 AM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -32,11 +32,13 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.f2prateek.dart.Dart;
 import com.tsums.blubberknife.annotation.ContentView;
 import com.tsums.newshacker.NHApplication;
 import com.tsums.newshacker.R;
@@ -54,6 +56,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -63,7 +66,7 @@ import timber.log.Timber;
  * Main Activity for the application which will hose the app drawer and the majority of the functionality.
  */
 @ContentView(R.layout.activity_main)
-public class MainActivity extends NHBaseActivity implements NavigationView.OnNavigationItemSelectedListener, ArticleListAdapter.ArticleClickListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ArticleListAdapter.ArticleClickListener {
 
     @Bind (R.id.activity_main_toolbar)       Toolbar            mToolbar;
     @Bind (R.id.activity_main_drawer_layout) DrawerLayout       mDrawerLayout;
@@ -74,7 +77,7 @@ public class MainActivity extends NHBaseActivity implements NavigationView.OnNav
     @Inject HNConnector mConnector;
     @Inject CheeaunAPIConnector cheeaunAPIConnector;
 
-    private List<CheeaunHNItem> articles = new ArrayList<>();
+    private List<CheeaunHNItem>   articles = new ArrayList<>();
     private ArticleListAdapter    mAdapter;
     private ActionBarDrawerToggle mToggle;
 
@@ -84,6 +87,9 @@ public class MainActivity extends NHBaseActivity implements NavigationView.OnNav
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((NHApplication) getApplication()).getmComponent().inject(this);
+        Dart.inject(this);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
 

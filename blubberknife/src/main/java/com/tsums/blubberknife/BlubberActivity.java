@@ -1,6 +1,6 @@
 /*
- * NewsHacker - settings.gradle
- * Last Modified: 1/23/16 9:17 AM
+ * NewsHacker - BlubberActivity.java
+ * Last Modified: 1/23/16 10:09 AM
  *
  * Copyright (c) 2016 Trevor Summerfield
  *
@@ -23,4 +23,16 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-include ':app', ':blubberknife', ':blubberknife-compiler'
+package com.tsums.blubberknife;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class BlubberActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        BlubberKnife.blubber(this);
+    }
+}
