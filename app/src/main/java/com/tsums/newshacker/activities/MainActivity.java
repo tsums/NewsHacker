@@ -39,7 +39,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.f2prateek.dart.Dart;
-import com.tsums.blubberknife.annotation.ContentView;
 import com.tsums.newshacker.NHApplication;
 import com.tsums.newshacker.R;
 import com.tsums.newshacker.adapters.ArticleListAdapter;
@@ -65,7 +64,7 @@ import timber.log.Timber;
 /**
  * Main Activity for the application which will hose the app drawer and the majority of the functionality.
  */
-@ContentView(R.layout.activity_main)
+//@ContentView(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ArticleListAdapter.ArticleClickListener {
 
     @Bind (R.id.activity_main_toolbar)       Toolbar            mToolbar;
@@ -179,5 +178,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
-
 }

@@ -34,7 +34,6 @@ import android.view.MenuItem;
 
 import com.f2prateek.dart.Dart;
 import com.f2prateek.dart.InjectExtra;
-import com.tsums.blubberknife.annotation.OptionsMenu;
 import com.tsums.newshacker.NHApplication;
 import com.tsums.newshacker.R;
 import com.tsums.newshacker.models.CheeaunHNItem;
@@ -52,13 +51,12 @@ import timber.log.Timber;
 /**
  * Detail page showing WebView of link contents.
  */
-@OptionsMenu(R.menu.activity_detail_toolbar)
+//@OptionsMenu(R.menu.activity_detail_toolbar)
 public class ArticleDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_ARTICLE = "extra_article";
 
     @Bind (R.id.activity_article_detail_toolbar) Toolbar toolbar;
-//    @Bind (R.id.activity_article_detail_webview) WebView webview;
 
     @InjectExtra (EXTRA_ARTICLE) CheeaunHNItem article;
 
@@ -79,8 +77,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportActionBar().setTitle(article.title);
-
-//        webview.loadUrl(article.url);
 
         getComments();
     }
